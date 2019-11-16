@@ -8,6 +8,9 @@ import sn.exampro.springbootserveur.services.impl.UtilisateurService;
 
 import java.util.Collection;
 
+@RestController
+@CrossOrigin("*")
+@RequestMapping("/api/decpc")
 public class UtilisateurController {
 
     @Autowired
