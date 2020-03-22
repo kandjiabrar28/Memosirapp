@@ -1,4 +1,4 @@
-package sn.exampro.springbootserveur.services.impl;
+package sn.exampro.springbootserveur.services;
 
 import sn.exampro.springbootserveur.entities.Utilisateur;
 

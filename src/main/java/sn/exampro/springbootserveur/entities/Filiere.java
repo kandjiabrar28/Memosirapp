@@ -4,23 +4,24 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-@Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Filiere implements Serializable{
-	
-	@Id @GeneratedValue
-	   private int idfiliere;
+import java.io.Serializable;
+import java.util.Date;
 
-	@Column(length=30)
-	   private String libfiliere;
+@Entity  @NoArgsConstructor @AllArgsConstructor @Data
+public class Filiere implements Serializable {
 
+    @Id
+    @GeneratedValue
+    private Long idfiliere;
+
+    @Column(length=30)
+    private String libfiliere;
+
+    private Date dateCreation;
+    private Date dateModification;
 
 }

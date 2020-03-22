@@ -4,35 +4,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import sn.exampro.springbootserveur.entities.Utilisateur;
-import sn.exampro.springbootserveur.services.impl.UtilisateurService;
+import sn.exampro.springbootserveur.services.UtilisateurService;
 
 import java.util.Collection;
 
-@RestController
+
 @CrossOrigin("*")
+@RestController
 @RequestMapping("/api/decpc")
 public class UtilisateurController {
 
     @Autowired
-    private UtilsateurService utilisateurService;
+    private UtilisateurService utilisateurService;
 
-    @PostMapping(value = "/utilisateurs", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Eleve createUtilisateur(@RequestBody Utilisateur utilisateur){
+    @PostMapping(value = "/utilisateurs",produces = MediaType.APPLICATION_JSON_VALUE)
+    public Utilisateur createUtilisateur(@RequestBody Utilisateur utilisateur){
         return utilisateurService.create(utilisateur);
     }
-
-    @PutMapping(value = "/utilisateurs/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/utilisateurs/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
     public Utilisateur update(@RequestBody Utilisateur utilisateur, @PathVariable Long id){
-        utilisateur.setId(id);
-        return UtilisateurService.update(utilisateur);
+        utilisateur.setIduser(id);
+        return utilisateurService.update(utilisateur);
     }
-
-    @GetMapping(value = "/utilisateurs", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/utilisateurs",produces = MediaType.APPLICATION_JSON_VALUE)
     public Collection<Utilisateur> findAll(){
         return utilisateurService.getAll();
     }
-
-    @DeleteMapping(value = "/utilisateurs/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/utilisateurs/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
     public void delete(@PathVariable Long id){
         utilisateurService.delete(id);
     }
